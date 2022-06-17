@@ -1,0 +1,247 @@
+.app-container {
+    background: url("/assets/images/weather_background_image.jpg") center no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: scroll;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.container {
+    padding: 0px 40px;
+    color:#fff;
+    max-width: 100%;
+}
+
+.current-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.date-container {
+    font-weight: 100;
+}
+
+.date-container .time {
+    font-size: 30px;
+}
+
+.date-container .date {
+    font-size: 22px;
+}
+
+
+.place-container .time-zone {
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.place-container .state {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    padding: 15px 30px;
+    margin: 15px 0;
+    color: black;
+}
+
+.current-weather {
+    display: flex;
+    justify-content: center;
+}
+
+.current-status {
+    display: flow-root;
+    align-items: center;
+    font-size: 20px;
+}
+
+.future-forecast {
+    background: rgba(93 93 103 / 60%);;
+    padding: 25px;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    color:black;
+    width: 100%;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+.future-forecast .today {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding:15px;
+    margin-right: 15px;
+    min-width: 200px;
+    border-radius: 10px;
+    // background: rgba(93 93 103 / 60%);
+}
+
+.future-forecast .today .day {
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.future-forecast .today .temp {
+    font-size: 12px;
+}
+
+.future-forecast .weather-forecast {
+    display: flex;
+}
+
+.weather-forecast .weather-forecast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border: 1px solid #eee;
+    padding: 15px;
+    min-width: 130px;
+    border-radius: 10px;
+}
+
+.weather-forecast .weather-forecast-item .day {
+    padding: 5px 15px;
+    font-size: 20px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.temp {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.weather-temp {
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.weather-forecast .weather-forecast-item .temp {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.city-search {
+    width: 100%;
+    height: 26px;
+    border-radius: 6px;
+    border: none;
+    padding: 6px;
+    outline: none;
+}
+
+.current-text {
+    font-size: 14px;
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.todays-card{
+    max-width: 85% !important;
+    margin-left: 88px;
+    margin-top: 3 rem;
+   
+}
+
+@media only screen and  (max-width:730px) {
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .future-forecast {
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
+
+    .future-forecast .today .temp {
+        font-size: 16px;
+    }
+
+    .date-container .time {
+        font-size: 50px;
+    }
+
+    .date-container .date {
+        font-size: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 1400px) {
+    .future-forecast {
+        justify-content: start;
+        align-items: none;
+        overflow-x: scroll;
+    }
+}
+
+.header {
+    max-width: 45.5em;
+    width: 34em;
+    transition: .25s;
+    position: relative;
+    top: 2em;
+    height: 4em;
+    white-space: nowrap;
+    padding: 10px 20px;
+    margin: 0;
+    border-radius: 2em;
+    box-shadow: 0 1.5px 3px rgb(0 0 0 / 25%);
+    background: #fff;
+    background-size: contain;
+    
+}
+.app-name{
+    position: absolute;
+    left: 1em;
+    top: 1rem;
+    width: 11em;
+    height: 100%;
+    color: #6a91b9;
+}
+.place-heading{
+    color: #6a91b9;
+}
+.todays-card-main{
+    margin-top: 50px !important;
+}
+
+.searchBox{
+    display: block;
+    border-radius: 2em;
+    border: 1px solid #ccc;
+    padding: 0.5em 1.5em 0 2.5em;
+    height: 2.5em;
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 13%);
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+
+.weather-forecast {
+    display: flex;
+    justify-content: space-between;
+}
