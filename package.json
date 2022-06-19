@@ -22,6 +22,8 @@
     "bootstrap": "4.1.1",
     "moment": "^2.29.3",
     "ngx-bootstrap": "^6.2.0",
+    "chart.js": "^2.9.3",
+    "ng2-charts": "^2.4.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

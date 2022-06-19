@@ -16,17 +16,40 @@
             <div class="current-weather">
               <h2 class="place-heading">Weather Today in {{location.name}}, {{location.state}}</h2>
             </div>
-            <div class="temp">{{ currentWeatherExtracted.temperature }}&#176; C</div>
-            <div class="temp">{{ currentWeatherExtracted.main_Weather }}</div>
-            <div class="current-text">Wind - {{ (currentWeatherExtracted.wind_speed) * 3.6 | number : '1.2-2' }} kmph</div>
-            <div class="current-text">Pressure - {{ currentWeatherExtracted.pressure }} hPa</div>
-            <div class="current-text">Humidity - {{ currentWeatherExtracted.humidity }} %</div>
+            <div class="row" style="align-items: center;">
+              <div class="col-md-6">
+                <div class="current-text">Wind {{ (currentWeatherExtracted.wind_speed) * 3.6 | number : '1.2-2' }} kmph</div>
+                <div class="current-text">Pressure {{ currentWeatherExtracted.pressure }} hPa</div>
+                <div class="current-text">Humidity {{ currentWeatherExtracted.humidity }} %</div>
+              </div>
+              <div class="col-md-6" style="text-align: center;">
+                <div class="temp">{{ currentWeatherExtracted.temperature }}&#176; C</div>
+                <div class="temp">{{ currentWeatherExtracted.main_Weather }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row ">
+    <div class="item-container">
+      <div class="forecast-container">
+          <div>
+              <div>
+                  <canvas baseChart height="210" width="1110"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [colors]="lineChartColors"
+                      [legend]="false"
+                      [chartType]="'line'">
+                  </canvas>
+                </div>
+          </div>
+      </div>
+  </div>
+
+    <div class="row">
       <div class="col-md-12 todays-card">
         <div class="forecast-container">
           <div class="today">
@@ -38,8 +61,6 @@
                 <div class="day">{{weatherData.day}}</div>
                 <img src="{{weatherData.icon}}" alt="weather icon" class="w-icon">
                 <div class="weather-temp">{{weatherData.desc}}</div>
-                <div class="weather-temp">Max - {{weatherData.temp_max}}&#176; C</div>
-                <div class="weather-temp">Min - {{weatherData.temp_min}}&#176; C</div>
                 <div class="weather-temp">Day - {{weatherData.temp_day}}&#176; C</div>
                 <div class="weather-temp">Night - {{weatherData.temp_night}}&#176; C</div>
               </div>
@@ -49,20 +70,4 @@
       </div>
     </div>
   </div>
-  <!-- <div class="item-container">
-      <div class="forecast-container">
-          <div>
-              <div>
-                  <canvas baseChart height="260" width="900"
-                      [datasets]="lineChartData"
-                      [labels]="lineChartLabels"
-                      [options]="lineChartOptions"
-                      [colors]="lineChartColors"
-                      [legend]="false"
-                      [chartType]="'line'">
-                  </canvas>
-                </div>
-          </div>
-      </div>
-  </div> -->
 </div>

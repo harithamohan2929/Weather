@@ -47,10 +47,12 @@
     display: flex;
     justify-content: center;
     background: white;
+    min-width: 550px;
     border-radius: 8px;
     padding: 15px 30px;
-    margin: 15px 0;
+    margin: 5px 0;
     color: black;
+    opacity: 0.8;
 }
 
 .current-weather {
@@ -111,7 +113,6 @@
     align-items: center;
     justify-content: center;
     margin: 0 10px;
-    border: 1px solid #eee;
     padding: 15px;
     min-width: 130px;
     border-radius: 10px;
@@ -125,8 +126,8 @@
 }
 
 .temp {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .weather-temp {
@@ -150,6 +151,7 @@
 
 .current-text {
     font-size: 14px;
+    border-bottom: 1px solid #dedede;
 }
 
 .item-container {
@@ -158,8 +160,8 @@
     width: 100%;
 }
 .todays-card{
-    max-width: 85% !important;
-    margin-left: 88px;
+    display: flex;
+    justify-content: center;
     margin-top: 3 rem;
    
 }
@@ -203,7 +205,7 @@
     width: 34em;
     transition: .25s;
     position: relative;
-    top: 2em;
+    top: 25px;
     height: 4em;
     white-space: nowrap;
     padding: 10px 20px;
@@ -226,7 +228,7 @@
     color: #6a91b9;
 }
 .todays-card-main{
-    margin-top: 50px !important;
+    margin-top: 35px !important;
 }
 
 .searchBox{

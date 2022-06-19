@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { WeatherServiceService } from './services/weather-service.service';
 import * as moment from 'moment';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+
 import locations from './data/locations.json';
 
 @Component({
@@ -23,6 +26,31 @@ export class AppComponent {
   dailytWeatherExtracted: any[] = [];
   status = 'LOADING'
 
+  lineChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+            xAxes: [{
+                gridLines: {
+                    color: 'rgba(0, 0, 0, 0)'
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    color: 'rgba(0, 0, 0, 0)'
+                }
+            }]
+      }
+  };
+  lineChartColors: Color[] = [
+      {
+          borderColor: '#2a4250'
+      }
+  ];
+  lineChartData: ChartDataSets[] = [
+      { data: [] },
+  ];
+  lineChartLabels: Label[] = [];
+
   constructor(private weatherService: WeatherServiceService){
 
   }
@@ -30,7 +58,6 @@ export class AppComponent {
     this.locationArray = locations.map((loc) => {
       return loc.name;
     })
-    console.log(this.locationArray);
     this.getWeatherData();
   }
 
@@ -38,6 +65,7 @@ export class AppComponent {
     this.status = 'LOADING'
     this.currentWeather = {};
     this.dailytWeatherExtracted = [];
+    this.lineChartData[0].data = [];
     locations.forEach(element => {
       if(element.name === this.selectedLocation){
         this.location = element;
@@ -46,7 +74,6 @@ export class AppComponent {
     this.weatherService.getWeatherData(this.location.latitude, this.location.longitude).subscribe(
       (data) => {
         this.climateDetails = data;
-        console.log(' this.climateDetails', this.climateDetails)
         this.currentWeather = this.climateDetails.current;
         this.hourlyWeather = this.climateDetails.hourly;
         this.currentWeatherExtracted = {
@@ -58,10 +85,7 @@ export class AppComponent {
             description_Weather: this.currentWeather.weather[0].description,
             icon: `http:/openweathermap.org/img/wn/${this.currentWeather.weather[0].icon}.png`
         };
-        console.log('this.currentWeatherExtracted',this.currentWeatherExtracted );
-
         this.dailyWeather = this.climateDetails.daily;
-        console.log('this.dailyWeather',this.dailyWeather );
         this.dailyWeather.forEach(day => {
           this.dailytWeatherExtracted.push({
               pressure: day.pressure,
@@ -76,7 +100,10 @@ export class AppComponent {
               icon: `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`
           });
         });
-        console.log('this.dailytWeatherExtracted',this.dailytWeatherExtracted );
+        this.climateDetails.hourly.slice(24).forEach((hour) => {
+          this.lineChartLabels.push(moment(hour.dt * 1000).format('HH:mm'));
+          this.lineChartData[0].data.push(hour.temp);
+        });
         this.status = 'COMPLETE'
       },
       (error)=>{
