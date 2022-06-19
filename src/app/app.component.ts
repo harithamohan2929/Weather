@@ -66,6 +66,8 @@ export class AppComponent {
     this.currentWeather = {};
     this.dailytWeatherExtracted = [];
     this.lineChartData[0].data = [];
+    this.climateDetails = undefined;
+    this.lineChartLabels = [];
     locations.forEach(element => {
       if(element.name === this.selectedLocation){
         this.location = element;
